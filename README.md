@@ -6,6 +6,7 @@ splits and joins strings based on given delimiters
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/delimiterer.svg)](https://npmjs.org/package/delimiterer)
 [![Codecov](https://codecov.io/gh/Basementbrb/delimiterer/branch/master/graph/badge.svg)](https://codecov.io/gh/Basementbrb/delimiterer)
+[![Build Status](https://travis-ci.org/Basementbrb/delimiterer.svg?branch=master)](https://travis-ci.org/Basementbrb/delimiterer)
 [![Downloads/week](https://img.shields.io/npm/dw/delimiterer.svg)](https://npmjs.org/package/delimiterer)
 [![License](https://img.shields.io/npm/l/delimiterer.svg)](https://github.com/Basementbrb/delimiterer/blob/master/package.json)
 
