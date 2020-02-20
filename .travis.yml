@@ -4,6 +4,10 @@ node_js:
 
 cache: npm
 
+before_install:
+  - sudo apt-get -y install xsel
+  - chmod +x ./bin/run
+
 script:
   - ./bin/run --version
   - ./bin/run --help
