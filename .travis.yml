@@ -1,11 +1,17 @@
 dist: bionic
+
 services:
   - xvfb
+
 language: node_js
+
 node_js:
   - node
 
 cache: npm
+
+install:
+  - npm install -g codecov
 
 before_install:
   - sudo apt-get -y install xsel
@@ -16,5 +22,5 @@ script:
   - npm run test
 
 after_success:
-  - ./node_modules/.bin/nyc report --reporter text-lcov > coverage.lcov
+  - ./node_modules/.bin/nyc report --reporter text-lcov > coverage.lcov && codecov
   - bash <(curl -s https://codecov.io/bash)
