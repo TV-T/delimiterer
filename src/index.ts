@@ -3,7 +3,7 @@ import * as clipboardy from 'clipboardy'
 import * as os from 'os'
 
 class Delimiterer extends Command {
-  static description = 'A terminal tool for delimiting text stored on the clipboard.';
+  static description = 'A terminal tool for delimiting text';
 
   static flags = {
     version: flags.version({char: 'v'}),
