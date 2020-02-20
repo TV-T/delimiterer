@@ -12,7 +12,6 @@ before_install:
   - chmod +x ./bin/run
 
 script:
-  - ./bin/run --version
   - ./bin/run --help
   - npm run test
 
