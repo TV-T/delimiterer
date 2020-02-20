@@ -1,7 +1,7 @@
 {
   "name": "delimiterer",
   "description": "A terminal tool for delimiting text",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Timothy Vane-Tempest @Basementbrb",
   "bin": {
     "delim": "./bin/run"

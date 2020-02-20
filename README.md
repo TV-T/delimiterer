@@ -20,7 +20,7 @@ $ npm install -g delimiterer
 $ delim COMMAND
 running command...
 $ delim (-v|--version|version)
-delimiterer/0.0.0 win32-x64 node-v12.11.1
+delimiterer/1.0.0 win32-x64 node-v12.11.1
 $ delim --help [COMMAND]
 USAGE
   $ delim COMMAND
