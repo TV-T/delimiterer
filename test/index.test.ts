@@ -48,10 +48,9 @@ describe('delimiterer', () => {
     test
     .stdout()
     .do(() => cmd.run(['newline', '.', '--output']))
-    .it('outputs result to stdout instead of clipboard', async (ctx, done) => {
+    .it('outputs result to stdout instead of clipboard', async ctx => {
       expect(await clipboardy.read()).to.equal(['1', '2', '3', '4'].join(os.EOL))
       expect(ctx.stdout).to.contain('1.2.3.4')
-      done()
     })
   })
 
