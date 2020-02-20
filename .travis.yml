@@ -5,14 +5,13 @@ node_js:
 cache: npm
 
 before_install:
-  - sudo apt-get -y install xsel
+  - sudo apt-get -y install xsel xvfb
   - chmod +x ./bin/run
 
 script:
   - ./bin/run --version
   - ./bin/run --help
   - npm run test
-
 
 after_success:
   - ./node_modules/.bin/nyc report --reporter text-lcov > coverage.lcov
