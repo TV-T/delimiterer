@@ -8,7 +8,8 @@ class Delimiterer extends Command {
   static flags = {
     version: flags.version({char: 'v'}),
     help: flags.help({char: 'h'}),
-    output: flags.boolean({char: 'o'}),
+    output: flags.boolean({char: 'o', description: 'Output to stdout instead of modifying clipboard directly.'}),
+    pipe: flags.boolean({char: 'p', description: 'Input from stdin instead of reading from clipboard.'})
   };
 
   static args = [
@@ -52,9 +53,10 @@ class Delimiterer extends Command {
         args.inputDelimiter
 
       const outputFunc = flags.output ? this.log : clipboardy.write
+      const inputFunc = flags.pipe ? this.readStdin : clipboardy.read
       await outputFunc(
-        await clipboardy.read()
-        .then(input => input ? input.split(inputDelimiter) : Promise.reject(new Error('Clipboard is empty.')))
+        await inputFunc()
+        .then(input => input ? input.split(inputDelimiter) : Promise.reject(new Error('Input was empty.')))
         .then(splitInput => splitInput.join(args.outputDelimiter)),
       )
       if (!flags.output) {
@@ -64,6 +66,16 @@ class Delimiterer extends Command {
       this.error(error, {exit: 100})
     }
   }
+
+  async readStdin() {
+    return new Promise<string>((resolve, reject) => {
+      process.stdin.resume()
+      process.stdin.setEncoding('utf8')
+      process.stdin.on('data', (data: string) => {
+        resolve(data)
+      })
+    })
+  } 
 }
 
 export = Delimiterer;
